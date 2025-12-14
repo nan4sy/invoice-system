@@ -1,0 +1,50 @@
+cd ~/dev/invoice-system
+
+cat > .gitignore <<'EOF'
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Secrets / env ---
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# --- Logs ---
+*.log
+pnpm-debug.log*
+pnpm-error.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Rails (api/) ---
+/api/log/*
+!/api/log/.keep
+/api/tmp/*
+!/api/tmp/.keep
+/api/.bundle/
+/api/vendor/bundle
+/api/.byebug_history
+/api/config/master.key
+/api/config/credentials/*.key
+
+# SQLite should not be committed
+/api/db/*.sqlite3
+/api/db/*.sqlite3-*
+/api/db/*.db
+/api/db/*.db-*
+
+# Rails storage artifacts (ActiveStorage/Solid* etc)
+/api/storage/*
+!/api/storage/.keep
+
+# --- Node / Vite (web/) ---
+/web/node_modules/
+/web/dist/
+/web/.vite/
+/web/coverage/
+EOF
