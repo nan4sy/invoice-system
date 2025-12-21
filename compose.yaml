@@ -6,10 +6,10 @@ services:
       - "127.0.0.1:3306:3306"
     environment:
       TZ: Asia/Tokyo
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: invoice_system_development
-      MYSQL_USER: invoice
-      MYSQL_PASSWORD: invoicepassword
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     command: >
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_0900_ai_ci
