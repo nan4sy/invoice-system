@@ -3,6 +3,8 @@
 ### API
 ```bash
 cd api
+bundle install
+bin/rails db:prepare
 bin/rails s -p 3000
 ```
 
