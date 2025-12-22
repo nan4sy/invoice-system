@@ -1,5 +1,12 @@
 ## Dev boot
 
+### DB (MySQL on Docker)
+```bash
+# repo root
+docker compose up -d mysql
+docker compose ps
+```
+
 ### API
 ```bash
 cd api
