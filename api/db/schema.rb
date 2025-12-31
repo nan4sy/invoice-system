@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_14_132212) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_22_062853) do
   create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "address"
     t.datetime "created_at", null: false
@@ -21,4 +21,24 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_14_132212) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_customers_on_name"
   end
+
+  create_table "invoices", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "billing_address", null: false
+    t.string "billing_name", null: false
+    t.string "billing_person_in_charge", null: false
+    t.string "billing_postal_code", null: false
+    t.string "billing_tel", null: false
+    t.datetime "created_at", null: false
+    t.bigint "customer_id", null: false
+    t.date "due_date", null: false
+    t.date "invoice_date", null: false
+    t.string "invoice_number", null: false
+    t.string "status", default: "draft", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_invoices_on_customer_id"
+    t.index ["invoice_number"], name: "index_invoices_on_invoice_number", unique: true
+  end
+
+  add_foreign_key "invoices", "customers"
 end
